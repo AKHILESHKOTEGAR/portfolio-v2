@@ -1,18 +1,21 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Database, ScanFace, Smartphone, BrainCircuit } from "lucide-react";
+import { ExternalLink, Github, ScanFace, Smartphone, BrainCircuit } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext"; // 👈 Import Hook
 
 export default function Projects() {
+  const { t, language } = useLanguage(); // 👈 Get Translations
+
   return (
     <section id="projects" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
         
         {/* SECTION HEADER */}
         <div className="mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Selected Works</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">{t.projects.title}</h2>
           <p className="text-gray-400 max-w-2xl text-lg">
-             Full-stack applications and AI models built with modern tech stacks.
+             {t.projects.subtitle}
           </p>
         </div>
 
@@ -36,8 +39,9 @@ export default function Projects() {
               <div>
                 <h3 className="text-3xl font-bold text-white mb-2">Orbit - AI Workspace</h3>
                 <p className="text-gray-400 mb-6 max-w-lg">
-                  A multi-tenant SaaS CRM that uses <span className="text-white">Google Gemini AI</span> to automate email drafting and task management. 
-                  Reduced administrative workload by 40%.
+                  {language === "en" 
+                    ? "A multi-tenant SaaS CRM that uses Google Gemini AI to automate email drafting and task management. Reduced administrative workload by 40%."
+                    : "Ein Multi-Tenant SaaS CRM, das Google Gemini AI nutzt, um E-Mail-Entwürfe und Aufgabenverwaltung zu automatisieren. Reduzierte den administrativen Aufwand um 40%."}
                 </p>
                 <div className="flex flex-wrap gap-3 text-xs font-mono text-gray-500 uppercase">
                   <span>Next.js 16</span> • <span>TypeScript</span> • <span>Prisma</span> • <span>Gemini AI</span>
@@ -62,7 +66,9 @@ export default function Projects() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-2">Breed Vision AI</h3>
                 <p className="text-gray-400 mb-6 text-sm">
-                  Computer vision model classifying 120+ dog breeds with 85% accuracy. Optimized using Transfer Learning.
+                  {language === "en"
+                    ? "Computer vision model classifying 120+ dog breeds with 85% accuracy. Optimized using Transfer Learning."
+                    : "Computer-Vision-Modell zur Klassifizierung von 120+ Hunderassen mit 85% Genauigkeit. Optimiert durch Transfer Learning."}
                 </p>
                  <div className="flex flex-wrap gap-3 text-xs font-mono text-gray-500 uppercase">
                   <span>Python</span> • <span>TensorFlow</span> • <span>Keras</span>
@@ -82,7 +88,9 @@ export default function Projects() {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Serverless Inventory App</h3>
                 <p className="text-gray-400 mb-6">
-                  Mobile app for real-time stock management. Optimized backend performance by 90% using AWS Lambda caching and MongoDB indexing.
+                  {language === "en"
+                    ? "Mobile app for real-time stock management. Optimized backend performance by 90% using AWS Lambda caching and MongoDB indexing."
+                    : "Mobile App für Echtzeit-Lagerverwaltung. Backend-Performance um 90% optimiert durch AWS Lambda Caching und MongoDB Indexierung."}
                 </p>
                 <div className="flex flex-wrap gap-3 text-xs font-mono text-gray-500 uppercase">
                   <span>Flutter</span> • <span>AWS Lambda</span> • <span>MongoDB</span> • <span>Serverless</span>
@@ -96,7 +104,7 @@ export default function Projects() {
                className="px-6 py-3 bg-white text-black font-bold rounded-full flex items-center gap-2 hover:bg-gray-200 transition-colors"
              >
                <Github size={18} />
-               View Source Code
+               {t.projects.viewCode}
              </a>
           </motion.div>
 

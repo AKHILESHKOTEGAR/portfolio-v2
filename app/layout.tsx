@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./components/Navbar"; // Importing from your new folder
 import "./globals.css";
+import Navbar from "./components/Navbar"; // 👈 1. Import Navbar
+import { LanguageProvider } from "./context/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <LanguageProvider>
+          <Navbar /> {/* 👈 2. Add Navbar inside the Provider */}
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

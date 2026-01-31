@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Download, Check, Copy, Terminal, Database, BrainCircuit } from "lucide-react";
+import { Mail, Download, Check, BrainCircuit } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext"; // 👈 IMPORT THE HOOK
 
 export default function Hero() {
+  const { t, language } = useLanguage(); // 👈 GET TRANSLATIONS & CURRENT LANGUAGE
   const [isCopied, setIsCopied] = useState(false);
   const email = "akhilkotegar@gmail.com"; 
 
@@ -23,7 +25,6 @@ export default function Hero() {
 
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
         
-        {/* --- LEFT COLUMN: TEXT & ACTION --- */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -33,7 +34,7 @@ export default function Hero() {
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-blue-400 text-xs font-bold tracking-wider mb-6">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-            OPEN TO WORK • GERMANY
+            {t.hero.status} {/* 👈 TRANSLATED */}
           </div>
 
           {/* Headline */}
@@ -46,8 +47,8 @@ export default function Hero() {
 
           {/* Description */}
           <p className="text-gray-400 text-lg mb-8 leading-relaxed max-w-lg">
-            Software Developer & Master's Student at <span className="text-white">TH Deggendorf</span>. 
-            I engineer scalable systems using <span className="text-blue-400">Next.js 16</span>, <span className="text-blue-400">Cloud (AWS/GCP)</span>, and <span className="text-purple-400">AI Models</span>.
+            {t.hero.role} at <span className="text-white">TH Deggendorf</span>. 
+            {t.hero.description} {/* 👈 TRANSLATED */}
           </p>
 
           {/* Buttons */}
@@ -57,21 +58,22 @@ export default function Hero() {
               className="px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors flex items-center gap-2"
             >
               {isCopied ? <Check size={18} className="text-green-600"/> : <Mail size={18} />}
-              {isCopied ? "Email Copied" : "Contact Me"}
+              {isCopied ? t.hero.emailCopied : t.hero.contactBtn} {/* 👈 TRANSLATED */}
             </button>
 
             <a 
-              href="/resume.pdf" 
+              href="/resume.pdf"  
               target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 bg-white/5 border border-white/10 text-white font-medium rounded-lg hover:bg-white/10 transition-colors flex items-center gap-2"
             >
               <Download size={18} />
-              Resume
+              {t.hero.resumeBtn} {/* 👈 TRANSLATED */}
             </a>
           </div>
         </motion.div>
 
-        {/* --- RIGHT COLUMN: VISUAL (CODE WINDOW) --- */}
+        
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -94,12 +96,16 @@ export default function Hero() {
               </div>
               
               <p><span className="text-purple-400">async function</span> <span className="text-yellow-400">generateTask</span>(input) {"{"}</p>
-              <p className="pl-4 text-gray-500">// Automating workflow via LLM</p>
+              
+              {/* Nice detail: Translating the code comment too! */}
+              <p className="pl-4 text-gray-500">
+                // {language === "de" ? "Workflow Automatisierung via LLM" : "Automating workflow via LLM"}
+              </p>
+
               <p className="pl-4">
                 <span className="text-blue-400">const</span> analysis = <span className="text-purple-400">await</span> ai.analyze(input);
               </p>
               <p className="pl-4">
-                {/* FIXED LINE BELOW: Changed > to &gt; */}
                 <span className="text-blue-400">if</span> (analysis.confidence &gt; <span className="text-green-400">0.9</span>) {"{"}
               </p>
               <p className="pl-8">

@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "../context/LanguageContext"; 
+
 const skills = [
   "Next.js 16", "React", "TypeScript", "Python", "TensorFlow", 
   "Google Gemini", "AWS Lambda", "PostgreSQL", "Prisma", 
@@ -7,11 +9,14 @@ const skills = [
 ];
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 overflow-hidden border-b border-white/5">
       <div className="max-w-6xl mx-auto px-6 mb-8">
+        {/* 👇 TRANSLATED TITLE */}
         <h3 className="text-gray-500 text-sm font-mono uppercase tracking-widest">
-          Technologies & Frameworks
+          {t.skills.title}
         </h3>
       </div>
 

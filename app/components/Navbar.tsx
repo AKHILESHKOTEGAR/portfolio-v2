@@ -48,7 +48,7 @@ export default function Navbar() {
             <Github size={18} />
           </a>
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/akhilesh-kotegar-489890249/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-blue-400 transition-colors"
