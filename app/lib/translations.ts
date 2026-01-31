@@ -44,7 +44,18 @@ export const translations = {
       footer: "© 2026 Akhilesh Bhaskar Kotegar.",
       impressum: "Legal Notice (Impressum)",
     },
-  },
+    journey: {
+        title: "My Journey",
+        edu1: "M.Sc. Applied Computer Science",
+        edu1loc: "TH Deggendorf • Germany",
+        work2: "Software Engineer Intern(Contract)",
+        work2loc: "Celebto • Remote",
+        work1: "Software Engineer Intern",
+        work1loc: "Celebto • Bangalore",
+        edu2: "B.E. Information Science",
+        edu2loc: "Ramaiah Institute • Bangalore",
+      },
+    },
   de: {
     nav: {
       projects: "Projekte",
@@ -88,5 +99,16 @@ export const translations = {
       footer: "© 2026 Akhilesh Bhaskar Kotegar.",
       impressum: "Impressum",
     },
-  },
+    journey: {
+        title: "Mein Werdegang",
+        edu1: "M.Sc. Applied Computer Science",
+        edu1loc: "TH Deggendorf • Deutschland",
+        work2: "Software Engineer Intern (Vertrag)",
+        work2loc: "Celebto • Remote",
+        work1: "Software Engineer Praktikant",
+        work1loc: "Celebto • Bangalore",
+        edu2: "B.E. Information Science",
+        edu2loc: "Ramaiah Institute • Bangalore",
+      },
+    }
 };

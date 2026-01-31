@@ -29,19 +29,26 @@ export default function About() {
             </p>
             
             <p>
-              {t.about.bio2} {language === "en" ? "I am focused on mastering distributed systems and software architecture. My goal is to build systems that are not just functional, but scalable and secure by design." : "Ich konzentriere mich auf verteilte Systeme und Softwarearchitektur. Mein Ziel ist es, Systeme zu bauen, die nicht nur funktional, sondern auch skalierbar und sicher sind."}
+              {t.about.bio2} {language === "en" 
+                ? "I am focused on mastering distributed systems and software architecture. My goal is to build systems that are not just functional, but scalable and secure by design." 
+                : "Ich konzentriere mich auf verteilte Systeme und Softwarearchitektur. Mein Ziel ist es, Systeme zu bauen, die nicht nur funktional, sondern auch skalierbar und sicher sind."}
             </p>
             
             <p>
-               {language === "en" ? "My engineering foundation was built at" : "Mein technisches Fundament habe ich am"} <strong>Ramaiah Institute of Technology (8.05 GPA)</strong> {language === "en" ? "where I specialized in Data Science." : "gelegt, wo ich mich auf Data Science spezialisiert habe."}
+               {language === "en" ? "My engineering foundation was built at" : "Mein technisches Fundament habe ich am"} <strong>Ramaiah Institute of Technology (8.05 GPA)</strong>, {language === "en" 
+                 ? "where I honed my skills in Software Engineering, Data Structures (DSA), and System Architecture." 
+                 : "wo ich meine Fähigkeiten in Software-Engineering, Datenstrukturen (DSA) und Systemarchitektur vertieft habe."}
             </p>
 
+            {/* 👇 UPDATED SECTION: Work while studying */}
             <p>
-               {language === "en" ? "In the industry, I spent 1.5 years at" : "In der Industrie habe ich 1,5 Jahre bei"} <strong>Celebto Technologies</strong> {language === "en" ? "shifting from frontend development to backend cloud automation." : "verbracht, wo ich von der Frontend-Entwicklung zur Backend-Cloud-Automatisierung gewechselt bin."}
+               {language === "en" ? "In the industry, I worked at" : "In der Industrie arbeitete ich bei"} <strong>Celebto Technologies</strong> {language === "en" 
+                 ? "for 1.5 years alongside my Bachelor's studies, shifting from frontend to backend cloud automation, followed by an intensive 6-month tenure in my final semester." 
+                 : "für 1,5 Jahre parallel zu meinem Bachelorstudium (Wechsel von Frontend zu Backend-Cloud-Automation), gefolgt von weiteren 6 Monaten im letzten Semester."}
             </p>
 
             <div className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg mt-8">
-              <p className="text-sm text-blue-300">
+              <p className="text-sm text-blue-300 mb-2">
                 <strong>{t.about.currentFocus}</strong>
               </p>
             </div>
@@ -67,7 +74,7 @@ export default function About() {
                   <p className="text-xs text-gray-500">TH Deggendorf • {language === "en" ? "Focus on System Design" : "Schwerpunkt Systemdesign"}</p>
                 </div>
 
-                <div className="h-[1px] bg-white/5" />
+                <div className="h-[px] bg-white/5" />
 
                 {/* Bachelors */}
                 <div>
@@ -91,17 +98,36 @@ export default function About() {
               </div>
             </div>
 
-            {/* CARD 2: EXPERIENCE */}
-            <div className="p-6 bg-[#111] border border-white/10 rounded-xl hover:border-white/20 transition-colors">
+            <div className="p-6 bg-[#111] border border-white/10 rounded-xl hover:border-white/20 transition-colors group">
               <div className="flex items-center gap-3 mb-4">
-                <Briefcase className="text-purple-400" size={20} />
+                <Briefcase className="text-purple-400 group-hover:scale-110 transition-transform" size={20} />
                 <h3 className="text-white font-bold text-md">{t.about.experience}</h3>
               </div>
+              
               <p className="text-white text-sm font-medium">Celebto Technologies</p>
-              <p className="text-xs text-gray-500 mb-2">{t.about.intern} • 1.5 Years</p>
-              <ul className="list-disc list-inside text-xs text-gray-400 space-y-1">
-                <li>{language === "en" ? "Engineered GCP Cloud Automation & RBAC Security." : "Entwicklung von GCP Cloud Automation & RBAC Security."}</li>
-                <li>{language === "en" ? "Reduced deployment errors via Docker & CI/CD." : "Reduzierung von Deployment-Fehlern durch Docker & CI/CD."}</li>
+              <p className="text-xs text-gray-500 mb-4">{t.about.intern} • 1.5 Years</p>
+              
+              <ul className="list-disc list-inside text-xs text-gray-400 space-y-2 leading-relaxed">
+                {/* Point 1: Security & Cloud Impact */}
+                <li>
+                  {language === "en" 
+                    ? "Architected secure GCP environments using RBAC, ensuring data integrity for enterprise clients." 
+                    : "Architektierte sichere GCP-Umgebungen mittels RBAC, um die Datenintegrität für Unternehmenskunden zu gewährleisten."}
+                </li>
+                
+                {/* Point 2: DevOps Impact */}
+                <li>
+                  {language === "en" 
+                    ? "Revolutionized deployment workflows with Docker & CI/CD, cutting manual errors by ~40%." 
+                    : "Revolutionierte Deployment-Workflows mit Docker & CI/CD und reduzierte manuelle Fehler um ~40%."}
+                </li>
+
+                {/* Point 3: Product Passion (New!) */}
+                <li>
+                  {language === "en" 
+                    ? "Bridged design and code by translating complex Figma UIs into responsive, high-performance applications." 
+                    : "Verband Design und Code durch die Übersetzung komplexer Figma-UIs in responsive, leistungsstarke Anwendungen."}
+                </li>
               </ul>
             </div>
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github, ArrowUpRight, Phone, Check } from "lucide-react";
 import { useState } from "react";
-import { useLanguage } from "../context/LanguageContext"; // 👈 Import Hook
+import { useLanguage } from "../context/LanguageContext"; 
 
 export default function Contact() {
   const { t } = useLanguage(); // 👈 Get Translations
@@ -81,10 +81,19 @@ export default function Contact() {
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <p>{t.contact.footer}</p>
+            
             <span className="hidden md:block text-gray-700">•</span>
+            
             {/* Link to Impressum */}
             <a href="/impressum" className="hover:text-white transition-colors">
               {t.contact.impressum}
+            </a>
+            
+            <span className="hidden md:block text-gray-700">•</span>
+            
+            {/* 👇 NEW: Link to Privacy Policy */}
+            <a href="/datenschutz" className="hover:text-white transition-colors">
+              Datenschutz
             </a>
           </div>
           
@@ -107,7 +116,6 @@ export default function Contact() {
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );
